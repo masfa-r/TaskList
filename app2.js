@@ -30,8 +30,11 @@ function getTasks(task) {
     tasks.forEach(function (task) {
         const li = document.createElement('li');
         li.className = 'collection-item';
-        li.appendChild(document.createTextNode(task));
+        // li.appendChild(document.createTextNode(task));
 
+        const para = document.createElement('p');
+        para.appendChild(document.createTextNode(task));
+         li.appendChild(para);
         const span = document.createElement('span');
         // Edit button
         const link_edit = document.createElement('i');
@@ -64,7 +67,10 @@ function addTask(e) {
     else {
         const li = document.createElement('li');
         li.className = 'collection-item';
-        li.appendChild(document.createTextNode(taskInput.value));
+        
+        const para = document.createElement('p');
+        para.appendChild(document.createTextNode(taskInput.value));
+         li.appendChild(para);
 
         const span = document.createElement('span');
         // Edit button
@@ -102,7 +108,7 @@ function editTask(e) {
             return;
         } else {
             removeFromLocalStorage(e.target.parentElement.parentElement);
-            e.target.parentElement.parentElement.firstChild.nodeValue = editedTask;
+            e.target.parentElement.parentElement.firstChild.innerHTML = editedTask;
             storeInLocalStorage(editedTask);
         }
         e.preventDefault();
