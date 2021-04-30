@@ -62,13 +62,18 @@ body{
     padding: 15px;
     margin: 10px;
     width: 100%;
+    height: auto;
     font-size: 14px;
     text-align: justify;
     background-color: rgb(248, 246, 246);
     border-radius: 10px;
     flex-wrap: wrap;
     word-wrap: break-word;
+    overflow: visible;
     
+}
+.collection-item p {
+    width: 100%;
 }
 .collection-item:hover{
     background-color: rgb(192, 253, 197);
