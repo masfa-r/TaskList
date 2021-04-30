@@ -105,7 +105,10 @@ function addTask(e) {
 function editTask(e) {
     if (e.target.classList.contains('update-item')) {
         let editedTask = prompt('Edit your task...');
-        if (editedTask === null || editedTask.length===0) {
+        if (editedTask === null) {
+            return;
+        }
+        else if(editedTask.length === 0){
             return;
         } else {
             removeFromLocalStorage(e.target.parentElement.parentElement);
@@ -151,10 +154,11 @@ function removeFromLocalStorage(taskItem) {
 
 // markAsDone
 function markAsDone(e) {
-    if (e.target.classList.contains('collection-item')) {
+    if (e.target.parentElement.classList.contains('collection-item')) {
 
-        e.target.classList.toggle("toggle");
+        e.target.parentElement.classList.toggle("toggle");
     }
+
 
 }
 
