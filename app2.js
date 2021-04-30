@@ -28,10 +28,11 @@ function getTasks(task) {
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
     tasks.forEach(function (task) {
+
+        // Create task list
         const li = document.createElement('li');
         li.className = 'collection-item';
         // li.appendChild(document.createTextNode(task));
-
         const para = document.createElement('p');
         para.appendChild(document.createTextNode(task));
          li.appendChild(para);
@@ -57,7 +58,7 @@ function getTasks(task) {
     })
 }
 
-// Adding Tasks
+// Adding Tasks in Collection
 
 function addTask(e) {
     // Check if input is empty
@@ -104,7 +105,7 @@ function addTask(e) {
 function editTask(e) {
     if (e.target.classList.contains('update-item')) {
         let editedTask = prompt('Edit your task...');
-        if (editedTask === null) {
+        if (editedTask === null || editedTask === "") {
             return;
         } else {
             removeFromLocalStorage(e.target.parentElement.parentElement);
@@ -147,21 +148,6 @@ function removeFromLocalStorage(taskItem) {
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
-
-
-
-// function editLocalStorage(taskItem,eTask){
-//     let tasks;
-//      if(localStorage.getItem('tasks')=== null){
-//          tasks = [];
-//      }
-//      else{
-//          tasks = JSON.parse(localStorage.getItem('tasks'));
-//      }
-
-//      tasks.push(eTask);
-//      localStorage.setItem('tasks',JSON.stringify(tasks));
-// }
 
 // markAsDone
 function markAsDone(e) {
