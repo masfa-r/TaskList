@@ -105,7 +105,7 @@ function addTask(e) {
 function editTask(e) {
     if (e.target.classList.contains('update-item')) {
         let editedTask = prompt('Edit your task...');
-        if (editedTask === null || editedTask === "") {
+        if (editedTask === null || editedTask.length===0) {
             return;
         } else {
             removeFromLocalStorage(e.target.parentElement.parentElement);
